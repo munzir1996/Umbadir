@@ -13,26 +13,21 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', 'HomeController@index')->name('index');
+
+Route::get('/about', 'HomeController@about')->name('about');
+
+Route::get('/goals', 'HomeController@goal')->name('goal');
+
+Route::get('/galleries', 'HomeController@gallery')->name('gallery');
+
+Route::get('/contacts', 'HomeController@contact')->name('contact');
+
+Route::get('/admin', function () {
+    return view('admin.index');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/goals', function () {
-    return view('goal');
-});
-
-Route::get('/galleries', function () {
-    return view('gallery');
-});
-
-Route::get('/contacts', function () {
-    return view('contact');
-});
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::prefix('admin')->middleware('auth')->group(function () {
+//     Route::resource('users', 'admins\UserController');
+// });
 
