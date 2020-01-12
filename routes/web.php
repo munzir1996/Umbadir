@@ -11,7 +11,6 @@
 |
 */
 
-Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 
@@ -23,11 +22,15 @@ Route::get('/galleries', 'HomeController@gallery')->name('gallery');
 
 Route::get('/contacts', 'HomeController@contact')->name('contact');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+Auth::routes();
 
-// Route::prefix('admin')->middleware('auth')->group(function () {
-//     Route::resource('users', 'admins\UserController');
-// });
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', 'admins\HomeController@index')->name('admin');
+    Route::resource('users', 'admins\UserController');
+    Route::resource('scopes', 'admins\ScopeController');
+    Route::resource('projects', 'admins\ProjectController');
+    Route::resource('goals', 'admins\GoalController');
+    Route::resource('pics', 'admins\PicController');
+    Route::resource('settings', 'admins\SettingController');
+});
 

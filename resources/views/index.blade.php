@@ -89,7 +89,7 @@
                 <div class="block-18 color-1 align-items-stretch">
                     <div class="text">
                         <span>خدمات وصلت الى</span>
-                        <strong class="number" data-number="1023900">0</strong>
+                        <strong class="number" data-number="{{$setting->counter}}">{{$setting->counter}}</strong>
                         <span>نسمة حول عدة ولايات</span>
                     </div>
                 </div>
@@ -169,15 +169,13 @@
         <div class="row">
             <div class="col-md-12 ftco-animate">
                 <div class="carousel-cause owl-carousel">
+                    @foreach ($scopes as $scope)
                     <div class="item">
                         <div class="cause-entry">
-                            <a href="#" class="img" style="background-image: url(images/IMG-20191226-WA0049.jpg);"></a>
+                            <a href="#" class="img" style="background-image: url(images/{{$scope->image}});"></a>
                             <div class="text p-3 p-md-4">
-                                <h3 align=right><a href="#">الصحة</a></h3>
-                                <p align=right>مشروع صيانة وتاهيل وتوسعة المستشفي والمراكز الصحية وتدريب وتأهيل
-                                    الكوادر الصحية ودعمها بالمعدات الطبية والأدوية المنقذة للحياة وتكثيف حملات إصحاح
-                                    البئية من مخلفات وأضرار التعدين الأهلي وذلك بتوفير الآليات والمعدات الصحية لهذا
-                                    المشروع</p>
+                                <h3 align=right><a href="#">{{$scope->title}}</a></h3>
+                                <p align=right>{!! $scope->description !!}</p>
                                 <span class="donation-time mb-3 d-block"></span>
                                 <div class="progress custom-progress-success">
                                     <div class="progress-bar bg-primary" role="progressbar" style="width: 28%"
@@ -187,103 +185,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="cause-entry">
-                            <a href="#" class="img" style="background-image: url(images/cause-3.jpg);"></a>
-                            <div class="text p-3 p-md-4">
-                                <h3 align="right"><a href="#">الجانب البيطري للثروة الحيوانية</a></h3>
-                                <p align="right">*مشروع المحجر البيطري الذي يقلل من الأمراض التي فتكت بالحيوان ولم
-                                    تحدد الأمصال الناجحة لمكافحتها وهذا يحتاج لجهد أبحاث بيطرية لتحديد الأمراض في
-                                    المعامل العالمية التي لها الدراية الكافية بتلك الأمراض والتي تتبع لمنظمة
-                                    OIEالعالمية في كل من فرنسا وجنوب أفريقيا
-                                    *مشروع تشييد مستشفي بيطري ثابت ومتحرك للثروة الحيوانية
-                                    *العمل علي تدريب وتأهيل معاونين صحيين للإنسان والحيوان
-                                </p>
-                                <span class="donation-time mb-3 d-block"></span>
-                                <div class="progress custom-progress-success">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%"
-                                        aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="fund-raised d-block"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="cause-entry">
-                            <a href="#" class="img" style="background-image: url(images/cause_.jpg);"></a>
-                            <div class="text p-3 p-md-4">
-                                <h3 align="right"><a href="#">مجال الزراعة</a></h3>
-                                <p align="right">السعي لتوفير التقاوي والبذور المحسنة و 5تركتوارلصالح الأسر الفقيرة
-                                    المتعففة للاستفادة منها في الزراعة الحديثة لحرث الوديان الخصبة التي يصعب علي
-                                    الإنسان زراعتها تقليديا خاصة وأن المنطقة تواجه موجات جفاف وتصحر وقلة في الأمطار
-                                    مما يحدث فجوات غذائية تهدد الأمن الغذائي للمواطن</p>
-                                <span class="donation-time mb-3 d-block"></span>
-                                <div class="progress custom-progress-success">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%"
-                                        aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="fund-raised d-block"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="cause-entry">
-                            <a href="#" class="img" style="background-image: url(images/IMG-20191226-WA0039.jpg);"></a>
-                            <div class="text p-3 p-md-4">
-                                <h3 align="right"><a href="#">مجال المعادن</a></h3>
-                                <p align="right">في مجمل الخطة العامة تحدثنا عن البيئة والممارسات التي يقوم بها
-                                    التعدين الأهلي عبر الزئبق وغيره من الغازات السامة التي تضر بصحة الإنسان والحيوان
-                                    وتسعي المنظمة لعقد ورش وعمل علمية لتوعية المواطنين وذلك بالتنسيق مع الجهات
-                                    المختصة، وكما تسعي المنظمة في التنسيق مع وزارة المعادن والسطات المحلية بالولاية
-                                    والإدارية لإنشاء مشروعات صغيرة ومعامل إستخلاص للمعادن مثل الذهب وغير بالمنطقة
-                                    يعود ريعها لصالح مشروعات التنمية بالمنطقة</p>
-                                <span class="donation-time mb-3 d-block"></span>
-                                <div class="progress custom-progress-success">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%"
-                                        aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="fund-raised d-block"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="cause-entry">
-                            <a href="#" class="img" style="background-image: url(images/image_1.jpg);"></a>
-                            <div class="text p-3 p-md-4">
-                                <h3 align="right"><a href="#">مجال التعليم</a></h3>
-                                <p align="right">مشروع تدريب وتأهيل المعلمين وتهيئة البئية المدرسية للطالب والمعلم
-                                    بدعم مشروع الاجلاس والكتاب المدرسي والصحة المدرسية ومعالجة مشاكل العرب الرحل في
-                                    التعليم والصحة </p>
-                                <span class="donation-time mb-3 d-block"></span>
-                                <div class="progress custom-progress-success">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%"
-                                        aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="fund-raised d-block"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="cause-entry">
-                            <a href="#" class="img" style="background-image: url(images/image_11.jpg);"></a>
-                            <div class="text p-3 p-md-4">
-                                <h3 align="right"><a href="#">الإعفاءات الجمركية</a></h3>
-                                <p align="right">وفي سبيل تحقيق هذه المشاريع الكبيرة والتي تحتاج لدعم من كل الجهات
-                                    الرسمية والشعبية والتي تلمستها المنظمة في الفترة التي مضت وأتضح لها بأن هذه
-                                    المشروعات تحتاج إلي وقفة كل المجتمع بكل الوان طيفه وهي مشروعات طموحة وتحقيقها
-                                    يؤدي إلي إستقرار المنطقة خاصة وأنها في حدود مفتوحة مع دارفور ولقد تاثر إنسان
-                                    المنطقة من عوامل مناخية وطبيعية وبشرية ترتب عليها سلبيات كثيرة تسعي المنظمة مع
-                                    الجهات المختصة لحلها وتحويلها من مظاهر سالبة إلي مظاهر موجبة ولهذا فإن هذه
-                                    المشروعات تحتاج لوسائل ومعينات كثيرة من ضمنها الإعفاءات الجمركية. </p>
-                                <span class="donation-time mb-3 d-block"></span>
-                                <div class="progress custom-progress-success">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 28%"
-                                        aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="fund-raised d-block"></span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -293,65 +195,17 @@
 
 <!-- Gallery -->
 <section class="ftco-gallery">
-    <div class="d-md-flex">
-        <a href="images/cause-2.jpg"
+    <div class="row">
+        @foreach ($pics as $pic)
+        <a href="images/{{$pic->image}}"
             class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/cause-2.jpg);">
+            style="background-image: url(images/{{$pic->image}});">
             <div class="icon d-flex justify-content-center align-items-center">
                 <span class="icon-search"></span>
             </div>
         </a>
-        <a href="images/cause-3.jpg"
-            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/cause-3.jpg);">
-            <div class="icon d-flex justify-content-center align-items-center">
-                <span class="icon-search"></span>
-            </div>
-        </a>
-        <a href="images/cause-4.jpg"
-            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/cause-4.jpg);">
-            <div class="icon d-flex justify-content-center align-items-center">
-                <span class="icon-search"></span>
-            </div>
-        </a>
-        <a href="images/cause_5.jpg"
-            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/cause_5.jpg);">
-            <div class="icon d-flex justify-content-center align-items-center">
-                <span class="icon-search"></span>
-            </div>
-        </a>
-    </div>
-    <div class="d-md-flex">
-        <a href="images/cause_6.jpg"
-            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/cause_6.jpg);">
-            <div class="icon d-flex justify-content-center align-items-center">
-                <span class="icon-search"></span>
-            </div>
-        </a>
-        <a href="images/image_3.jpg"
-            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/image_3.jpg);">
-            <div class="icon d-flex justify-content-center align-items-center">
-                <span class="icon-search"></span>
-            </div>
-        </a>
-        <a href="images/image_1.jpg"
-            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/image_1.jpg);">
-            <div class="icon d-flex justify-content-center align-items-center">
-                <span class="icon-search"></span>
-            </div>
-        </a>
-        <a href="images/image_2.jpg"
-            class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate"
-            style="background-image: url(images/image_2.jpg);">
-            <div class="icon d-flex justify-content-center align-items-center">
-                <span class="icon-search"></span>
-            </div>
-        </a>
+            
+        @endforeach
     </div>
 </section>
 <!--END Gallery -->
@@ -360,63 +214,29 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section ftco-animate text-center">
-                <h2 align="right" class="mb-4">أهم المشروعات والبرامج التي نفذت للأعوم 2016-2019م</h2>
+                <h2 align="right" class="mb-4">أهم المشروعات والبرامج التي نفذت للأعوم 2016-<?php echo date("Y"); ?>م</h2>
                 <p align="right"></p>
             </div>
         </div>
         <div class="row d-flex">
+            @foreach ($projects as $project)
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                    <a href="#" class="block-20" style="background-image: url('images/image_1.jpg');">
                     </a>
                     <div class="text p-4 d-block">
                         <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            <div><a href="#">{{Carbon\Carbon::parse($project->created_at)->format('M , j , Y')}}</a></div>
+                            <div><a href="#"></a></div>
+                            <div><a href="#" class="meta-chat"><span class=""></span> </a></div>
                         </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">التعليم</a></h3>
-                        <p align="right">تم بناء فصل جديد للمساق العلمي ومكتب للمعلمين بالمدرسة الثانوية بنين وتم
-                            توفير الكتاب المدرسي للأساس وتم شراء المراجع الطبية الباهظة الثمن لابناء المنطقة بكليات
-                            الطب.</p>
+                        <h3 class="heading mt-3" align="right"><a href="#">{{$project->title}}</a></h3>
+                        <p align="right">{!! $project->description !!}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-                    </a>
-                    <div class="text p-4 d-block">
-                        <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">الصحة</a></h3>
-                        <p align="right">تم صيانة عنابر المستشفي وبناء 4 حمامات جديدة وصيانة 8 حمامات قديمة وتم مد
-                            المستشفي ب400 متر سراميك 300متر سقف مستعار وعمل طلية حريرية وبوهية اي صيانة كاملة لعنابر
-                            الرجال والنساء عدد 7 غرف وبردناتها ومازالت اعمال الصيانة جارية بالمستشفى.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-                    </a>
-                    <div class="text p-4 d-block">
-                        <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">محور النشاط الصحي و القوافل</a></h3>
-                        <p align="right">وفي وسط هذا الزخم التنموي أنطلقت القافلة الطبية الدعوية الثقافية بتكلفة
-                            تقدر بمليار جنيه نحو أم بادر وأطرافها والقافلة تعمل في عدة إتجاهات منها المسح لإستكشاف
-                            مرض روماتيزوم القلب للاطفال وهي تغطي 23 قرية بثلاثة محليات لولاية شمال كردفان سودري
-                            وجبرة وغرب بارا وفقا لجدول محدد.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </section>

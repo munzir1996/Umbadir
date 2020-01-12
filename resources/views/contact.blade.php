@@ -43,16 +43,16 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-md-3">
-                    <p><span>Address:</span> الجمعية العومية ولاية الخرطوم</p>
+                    <p><span>Address:</span>{{$setting->address}}</p>
                 </div>
                 <div class="col-md-3">
-                    <p><span>Phone:</span> <a href="tel://1234567920">+249912324250</a></p>
+                    <p><span>Phone:</span> <a href="tel://1234567920">{{$setting->phone}}</a></p>
                 </div>
                 <div class="col-md-3">
-                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">ohdo.org.sdn@gmail.com</a></p>
+                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">{{$setting->email}}</a></p>
                 </div>
                 <div class="col-md-3">
-                    <p><span>Website</span> <a href="index.html">أم بادر</a></p>
+                    <p><span>Website</span> <a href="index.html">{{$setting->website}}</a></p>
                 </div>
             </div>
             <div class="row block-9">

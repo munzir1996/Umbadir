@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Setting;
+use App\Scope;
+use App\Pic;
+use App\Project;
+use App\Goal;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,27 +19,38 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $setting = Setting::first();
+        $scopes = Scope::all();
+        $pics = Pic::latest()->limit(8)->get();
+        $projects = Project::latest()->limit(3)->get();
+        
+        return view('index')->withSetting($setting)->withScopes($scopes)->withPics($pics)->withProjects($projects);
     }
 
     public function about()
     {
-        return view('about');
+        $setting = Setting::first();
+        $projects = Project::latest()->get();
+
+        return view('about')->withSetting($setting)->withProjects($projects);
     }
 
     public function contact()
     {
-        return view('contact');
+        $setting = Setting::first();
+        return view('contact')->withSetting($setting);
     }
 
     public function gallery()
     {
-        return view('gallery');
+        $pics = Pic::all();
+        return view('gallery')->withPics($pics);
     }
 
     public function goal()
     {
-        return view('goal');
+        $goals = Goal::all();
+        return view('goal')->withGoals($goals);
     }
     
 }

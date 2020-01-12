@@ -85,7 +85,7 @@
                 <div class="block-18 color-1 align-items-stretch">
                     <div class="text">
                         <span>خدمات وصلت الى</span>
-                        <strong class="number" data-number="1023900">0</strong>
+                        <strong class="number" data-number="{{$setting->counter}}">{{$setting->counter}}</strong>
                         <span>نسمة حول عدة ولايات</span>
                     </div>
                 </div>
@@ -101,133 +101,30 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section ftco-animate text-center">
-                <h2 align="right" class="mb-4">أهم المشروعات والبرامج التي نفذت للأعوم 2016-2019م</h2>
+                <h2 align="right" class="mb-4">أهم المشروعات والبرامج التي نفذت للأعوم 2016-<?php echo date("Y"); ?>م</h2>
                 <p align="right"></p>
             </div>
         </div>
         <div class="row d-flex">
+            @foreach ($projects as $project)
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
-                        style="background-image: url('images/image_1.jpg');">
+                    <a href="#" class="block-20"
+                        style="background-image: url('images/{{$project->image}}');">
                     </a>
                     <div class="text p-4 d-block">
                         <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            <div><a href="#">{{Carbon\Carbon::parse($project->created_at)->format('M , j , Y')}}</a></div>
+                            <div><a href="#"></a></div>
+                            <div><a href="#" class="meta-chat"><span class=""></span></a></div>
                         </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">التعليم</a></h3>
-                        <p align="right">تم بناء فصل جديد للمساق العلمي ومكتب للمعلمين بالمدرسة الثانوية بنين وتم
-                            توفير الكتاب المدرسي للأساس وتم شراء المراجع الطبية الباهظة الثمن لابناء المنطقة بكليات
-                            الطب.</p>
+                        <h3 align="right" class="heading mt-3"><a href="#">{{$project->title}}</a></h3>
+                        <p align="right">{!! $project->description !!}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
-                        style="background-image: url('images/image_3.jpg');">
-                    </a>
-                    <div class="text p-4 d-block">
-                        <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">محور النشاط الصحي و القوافل</a></h3>
-                        <p align="right">وفي وسط هذا الزخم التنموي أنطلقت القافلة الطبية الدعوية الثقافية بتكلفة
-                            تقدر بمليار جنيه نحو أم بادر وأطرافها والقافلة تعمل في عدة إتجاهات منها المسح لإستكشاف
-                            مرض روماتيزوم القلب للاطفال وهي تغطي 23 قرية بثلاثة محليات لولاية شمال كردفان سودري
-                            وجبرة وغرب بارا وفقا لجدول محدد.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
-                        style="background-image: url('images/image_2.jpg');">
-                    </a>
-                    <div class="text p-4 d-block">
-                        <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">الصحة</a></h3>
-                        <p align="right">تم صيانة عنابر المستشفي وبناء 4 حمامات جديدة وصيانة 8 حمامات قديمة وتم مد
-                            المستشفي ب400 متر سراميك 300متر سقف مستعار وعمل طلية حريرية وبوهية اي صيانة كاملة لعنابر
-                            الرجال والنساء عدد 7 غرف وبردناتها ومازالت اعمال الصيانة جارية بالمستشفى.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
-                        style="background-image: url('images/image_2.jpg');">
-                    </a>
-                    <div class="text p-4 d-block">
-                        <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">القوافل العلاجية</a></h3>
-                        <p align="right">والشق الثاني القافلة العلاجية للإدارية كلها هنالك جدول لتغطية كل مناطق
-                            الإدارية مع حملات إصحاح البيئة وبرامج التثقيف الصحي وغيره من البرامج وتعبئة المجتمع وخلق
-                            برامج لتكون مصاحبة مع القافلة وحصر الفقراء والمساكين والأيتام ورفع شعار أن لا يكون بيننا
-                            فقير وذلك بتمليكه وسيلة للإنتاج وتوسيع مواعين الزكاة عبر عمل دعوي وسط الأغنياء لمساعدة
-                            الفقراء وفي هذا نشيد بان مجتمعنا مشحون بالقيم والمبادئ والأخلاق وهي تربة خصبة لفعل الخير
-                            خير الناس انفعهم للناس وأهل المعروف في الدنيا هم اهل المعروف في الآخرة وخيركم خيركم
-                            لاهله وأولي لك فأولي.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
-                        style="background-image: url('images/image_3.jpg');">
-                    </a>
-                    <div class="text p-4 d-block">
-                        <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">استمارات البيانات</a></h3>
-                        <p align="right">كما وان هنالك استمارات لمعرفة عدد السكان نساء ورجال شباب واطفال وطلاب
-                            المدارس بشقيهم وعدد المعلمين والمعلمات والبحث عن الكوادر والمواهب وتنمية القدرات بين
-                            الطلاب والشباب ومعرفة النقص في الجانب التعليمي ويليه الصحة وبيننا كادر طبي مميز من ابناء
-                            المنطقة ويعمل في كل التخصصات اربعة أخصائي اطفال لديهم اجهزة امريكية حديثة الصنع للكشف
-                            المبكر لمرض روماتزيوم القلب وجراحة دفيصل نساء وتوليد د حامد انف واذن وحنجرة د الرشيد
-                            وباطنية د مصطفي و د محمد احمد صيدلي ويرافقه مساعد صيدلة وطبيب اسنان واربعة فني معمل
-                            وموجات صوتية ومحضر عملية لتشخيص ومعرفة الامراض المستوطنة ووضع خريطة طريق واضحة للصحة كما
-                            لم تغفل القافلة في شقها الاداري قضية المياه والثروة الحيوانية والزراعية الغابية وكيفية
-                            تطويرها وتنميتها.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20"
-                        style="background-image: url('images/image_3.jpg');">
-                    </a>
-                    <div class="text p-4 d-block">
-                        <div class="meta mb-3">
-                            <div><a href="#">Sept 10, 2018</a></div>
-                            <div><a href="#">Admin</a></div>
-                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                        </div>
-                        <h3 align="right" class="heading mt-3"><a href="#">النشاط الاجتماعي</a></h3>
-                        <p align="right">ساهم المكتب مساهمة فاعلة في حل مشكلة الكواهلة والكاجا والتي راح ضحيتها 13
-                            من افراد القبيلتين 10 من كاجا و3 من الكواهلة وهي صراع حول منجم بشرق المشروع جريح السرحة
-                            ..قرين العكرش غرب أمبادر وظل كل المكتب التنفيذي في إجتماعات متواصلة مع كل الأطراف منذ
-                            وقوع المشكلة إلي أن تم تكليف نائب الأمين العام ومسئول الرعاية الإجتماعية للمشاركة في حل
-                            المشكلة التي تبني حلها الدعم السريع عبر القائد العقيد مضوي كما ساهم في حل مشكلة الكواهلة
-                            والكبابيش والتي راح ضحيتها 3من الكواهلة و2 من الكبابيش.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
 </section>

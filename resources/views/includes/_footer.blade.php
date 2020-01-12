@@ -35,7 +35,7 @@
         <div class="row mb-5">
             <div class="col-md-3">
                 <div align="center" class="ftco-footer-widget mb-6">
-                    <p align="center"> Powerd by OmegaTeam</p>
+                    <p align="center"><?php echo date("Y"); ?> &copy <a href="#">Omega Team</a></p>
                 </div>
             </div>
         </div>

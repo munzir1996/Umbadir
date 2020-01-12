@@ -19,7 +19,9 @@ class GoalController extends Controller
      */
     public function index()
     {
-        //
+        $goals = Goal::all();
+
+        return view('admins.goals.index')->withGoals($goals);
     }
 
     /**
@@ -40,7 +42,28 @@ class GoalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        $image = $request->file('image');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $location = public_path('images/'.$filename);
+        Image::make($image)->resize(347, 300)->save($location);
+
+        $data['image'] = $filename;
+
+        if (Goal::create($data)) {
+            session()->flash('success', 'تمت الاضافة بنجاح');
+
+            return redirect()->route('goals.index');
+        } else {
+            session()->flash('error', 'حصل خطاء اثناء الأضافة');
+
+            return redirect()->route('goals.index');
+        }
     }
 
     /**
@@ -62,7 +85,7 @@ class GoalController extends Controller
      */
     public function edit(Goal $goal)
     {
-        //
+        return view('admins.goals.edit')->withGoal($goal);
     }
 
     /**
@@ -74,7 +97,38 @@ class GoalController extends Controller
      */
     public function update(Request $request, Goal $goal)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'sometimes',
+        ]);
+
+        $goal->title = $request->title;
+        $goal->description = $request->description;
+
+        if($request->hasFile('image')){
+            //Add the new image
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/'.$filename);
+            Image::make($image)->resize(347, 355)->save($location);
+            $oldFilename = $goal['image'];
+            //Update the database
+            $goal['image'] = $filename;
+            //Delete the image
+            File::delete('images/'.$oldFilename);
+        }
+
+        if ($goal->save()) {
+            session()->flash('success', 'تمت الاضافة بنجاح');
+
+            return redirect()->route('goals.index');
+
+        } else {
+            session()->flash('error', 'حصل خطاء اثناء الأضافة');
+
+            return redirect()->route('goals.index');
+        }
     }
 
     /**
@@ -85,6 +139,14 @@ class GoalController extends Controller
      */
     public function destroy(Goal $goal)
     {
-        //
+        if ($goal->delete()) {
+            session()->flash('success', 'تم الحذف بنجاح');
+
+            return redirect()->route('goals.index');
+        } else {
+            session()->flash('error', 'حصل خطاء اثناء الحذف');
+
+            return redirect()->route('goals.index');
+        }
     }
 }

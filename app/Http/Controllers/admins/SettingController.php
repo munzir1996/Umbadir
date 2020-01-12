@@ -58,7 +58,7 @@ class SettingController extends Controller
      */
     public function edit(Setting $setting)
     {
-        return view('admin.settings.edit')->withSetting($setting);
+        return view('admins.settings.edit')->withSetting($setting);
         
     }
 
@@ -89,14 +89,14 @@ class SettingController extends Controller
             // return response()->json([],222);
             session()->flash('success', 'تمت الاضافة بنجاح');
 
-            return redirect()->route('settings.index');
+            return redirect()->route('settings.edit', 1);
 
         } else {
             // return response()->json([],222);
 
             session()->flash('error', 'حصل خطاء اثناء الأضافة');
 
-            return redirect()->route('settings.index');
+            return redirect()->route('settings.edit', 1);
         }
     }
 
